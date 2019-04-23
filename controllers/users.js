@@ -25,7 +25,7 @@ router.post("/", (req, res) => {
   })
 })
 
-// bookmark id accessible in req.params
+// bookmarkId is accessible in req.params
 // in this case, we will use two models and the refs to link them
 // sample body payload:
 /* 
