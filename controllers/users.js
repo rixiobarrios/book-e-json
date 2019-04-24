@@ -54,7 +54,29 @@ router.post("/new", (req, res) => {
       newBookmark.save()
       // send entire document back
       res.json(newUser)
+    })
+  })
+})
 
+// favorite a bookmark by a user id
+router.put("/:id/:bookmarkId", (req, res) => {
+  let userID = req.params.id
+  let bookmarkID = req.params.bookmarkId
+
+  // find the bookmark by its id
+  Bookmark.findById(bookmarkID).then(mark => {
+    // find the user by its id
+    // could also swap this out with email
+    User.findOneAndUpdate({ _id: userID }).then(user => {
+      // push each id into the others array
+      user.favorites.push(mark._id)
+      mark.favorited.push(user._id)
+      // save both
+      user.save()
+      mark.save()
+
+      // send json response
+      res.json(user)
     })
   })
 })
