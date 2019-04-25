@@ -1,6 +1,4 @@
 const mongoose = require('./connection')
-// import json file
-const seeds    = require('./seedData')
 
 const Bookmark = require('./models/Bookmark')
 const User = require('./models/User')
