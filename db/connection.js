@@ -6,8 +6,15 @@ const mongoose = require('mongoose')
 // and .catch() for errors
 mongoose.Promise = Promise
 
+let mongoURI = ''
+
 // set the uri for connecting to our local mongodb
-const mongoURI = 'mongodb://localhost/book-e'
+if(process.env.NODE_ENV === 'production') {
+  mongoURI = process.env.DB_URL
+} 
+else {
+  mongoURI = 'mongodb://localhost/book-e'
+}
 
 // connect to the database, with the imported mongoose instance
 mongoose

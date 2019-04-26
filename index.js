@@ -29,4 +29,6 @@ app.use('/api/bookmarks/', bookmarksController)
 // hands off requests on the '/api/users' route to the users controller
 app.use('/api/users/', userController)
 
-app.listen(8080, () => console.log('They see me rollin...on port 8080...'))
+app.set('port', process.env.PORT || 8080)
+
+app.listen(app.get('port'), () => console.log(`They see me rollin...on port ${app.get('port')}`))
