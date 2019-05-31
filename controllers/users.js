@@ -82,11 +82,9 @@ router.put("/:id/:bookmarkId", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).then(
-    prevRecord => {
-      res.json(prevRecord);
-    }
-  );
+  User.findOneAndUpdate({ _id: req.params.id }, req.body).then(prevRecord => {
+    res.json(prevRecord);
+  });
 });
 
 router.delete("/:id", (req, res) => {
