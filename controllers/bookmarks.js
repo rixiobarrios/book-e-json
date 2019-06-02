@@ -30,7 +30,7 @@ router.get("/:title", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  let newBookmark = req.body;
+  const newBookmark = req.body;
   // option 1
   // console log the request body
   // console.log(newBookmark)

@@ -12,14 +12,14 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:email", (req, res) => {
-  let userEmail = req.params.email;
+  const userEmail = req.params.email;
   User.findOne({ email: userEmail }).then(user => {
     res.json(user);
   });
 });
 
 router.post("/", (req, res) => {
-  let newUser = req.body;
+  const newUser = req.body;
   User.create(newUser).then(created => {
     res.json(created);
   });
@@ -60,8 +60,8 @@ router.post("/new", (req, res) => {
 
 // favorite a bookmark by a user id
 router.put("/:id/:bookmarkId", (req, res) => {
-  let userID = req.params.id;
-  let bookmarkID = req.params.bookmarkId;
+  const userID = req.params.id;
+  const bookmarkID = req.params.bookmarkId;
 
   // find the bookmark by its id
   Bookmark.findById(bookmarkID).then(mark => {
