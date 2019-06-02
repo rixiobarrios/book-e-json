@@ -2,7 +2,7 @@ const express = require("express");
 const parser = require("body-parser");
 const cors = require("cors");
 const bookmarksController = require("./controllers/bookmarks");
-const userController = require("./controllers/users");
+const usersController = require("./controllers/users");
 
 // instantiate express
 const app = express();
@@ -26,6 +26,6 @@ app.get("/", (req, res) => {
 // hands off requests on the '/api/bookmarks' route to the bookmarks controller
 app.use("/api/bookmarks/", bookmarksController);
 // hands off requests on the '/api/users' route to the users controller
-app.use("/api/users/", userController);
+app.use("/api/users/", usersController);
 
 app.listen(8080, () => console.log("They see me rollin...on port 8080..."));
