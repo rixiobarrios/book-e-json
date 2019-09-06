@@ -6,9 +6,9 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 
 const bookmarksRoutes = require("./routes/bookmarks");
-// const usersRoutes = require("./routes/users");
+const usersRoutes = require("./routes/users");
 
 app.use("/api/bookmarks/", bookmarksRoutes);
-// app.use("/api/users/", usersRoutes);
+app.use("/api/users/", usersRoutes);
 
 app.listen(8080, () => console.log("They see me rollin...on port 8080..."));
