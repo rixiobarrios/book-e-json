@@ -6,6 +6,11 @@ module.exports = {
       res.json(bookmarks);
     });
   },
+  create: (req, res) => {
+    const newBookmark = req.body;
+
+    Bookmark.create(newBookmark).then(bookmark => res.json(bookmark));
+  },
   show: (req, res) => {
     Bookmark.findOne({ title: req.params.title }).then(bookmark =>
       res.json(bookmark)

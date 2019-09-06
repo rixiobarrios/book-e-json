@@ -9,6 +9,9 @@ const bookmarksController = require("../controllers/bookmarks");
 
 bookmarksRouter.get("/", bookmarksController.index);
 
+/** Create: make a new bookmark */
+bookmarksRouter.post("/", bookmarksController.create);
+
 /** Show: retreive one bookmakr by its title */
 
 bookmarksRouter.get("/:title", bookmarksController.show);
