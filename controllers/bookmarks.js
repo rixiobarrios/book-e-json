@@ -15,5 +15,17 @@ module.exports = {
     Bookmark.findOne({ title: req.params.title }).then(bookmark =>
       res.json(bookmark)
     );
+  },
+  update: (req, res) => {
+    const updatedBookmark = req.body;
+
+    Bookmark.findOneAndUpdate({ title: req.params.title }, updatedBookmark, {
+      new: true
+    }).then(bookmark => res.json(bookmark));
+  },
+  destroy: (req, res) => {
+    Bookmark.findOneAndDelete({ title: req.params.title }).then(bookmark =>
+      res.json(bookmark)
+    );
   }
 };

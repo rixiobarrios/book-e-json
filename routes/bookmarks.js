@@ -16,4 +16,12 @@ bookmarksRouter.post("/", bookmarksController.create);
 
 bookmarksRouter.get("/:title", bookmarksController.show);
 
+/** Update: update a specific bookmark */
+
+bookmarksRouter.put("/:title", bookmarksController.update);
+
+/** Destory: delete a bookmark */
+
+bookmarksRouter.delete("/:title", bookmarksController.destroy);
+
 module.exports = bookmarksRouter;
