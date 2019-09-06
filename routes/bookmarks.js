@@ -8,5 +8,6 @@ router.post("/", bookmarksController.create);
 
 router.get("/:title", bookmarksController.show);
 router.put("/:title", bookmarksController.update);
+router.delete("/:title", bookmarksController.destroy);
 
 module.exports = router;
