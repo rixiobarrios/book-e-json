@@ -1,13 +1,8 @@
 const express = require("express");
-const router = express.Router();
+const bookmarksRouter = express.Router();
 
 const bookmarksController = require("../controllers/bookmarks");
 
-router.get("/", bookmarksController.index);
-router.post("/", bookmarksController.create);
+// add my routers here
 
-router.get("/:title", bookmarksController.show);
-router.put("/:title", bookmarksController.update);
-router.delete("/:title", bookmarksController.destroy);
-
-module.exports = router;
+module.exports = bookmarksRouter;
