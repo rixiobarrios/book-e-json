@@ -3,7 +3,9 @@ const Bookmark = require("../models/Bookmark");
 
 module.exports = {
   index: (req, res) => {
-    User.find({}).then(users => res.json(users));
+    User.find({})
+      .populate("favorites")
+      .then(users => res.json(users));
   },
   create: (req, res) => {
     const newUser = req.body;
@@ -16,7 +18,18 @@ module.exports = {
 
     User.create(newUser).then(user => {
       Bookmark.create(newBookmark).then(bookmark => {
-        //
+        console.log(user._id);
+        console.log(bookmark.id);
+
+        // pushing the object ids for the new documents in the referenced array fields
+        user.favorites.push(bookmark.id);
+        bookmark.favorited.push(user.id);
+
+        // save both documents, because I made changes to them since running the `create()` mongoose methods
+        user.save();
+        bookmark.save();
+
+        res.json(user);
       });
     });
 
