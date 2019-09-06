@@ -1,9 +1,12 @@
-const express = require("express");
-const router = express.Router();
+const Bookmark = require("../models/Bookmark");
 
-router.get("/", (req, res) => {
-  // res.send("<h1>Sup Multiverse!</h1>");
-  res.json({ hello: "multiverse" });
-});
-
-module.exports = router;
+module.exports = {
+  index: (req, res) => {
+    Bookmark.find({}).then(bookmarks => res.json(bookmarks));
+  },
+  show: (req, res) => {
+    Bookmark.find({ title: req.params.title }).then(bookmark =>
+      res.json(bookmark)
+    );
+  }
+};
