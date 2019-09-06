@@ -1,5 +1,5 @@
 const express = require("express");
-const bookmarksRouter = express.Router();
+const router = express.Router();
 
 const bookmarksController = require("../controllers/bookmarks");
 
@@ -7,21 +7,21 @@ const bookmarksController = require("../controllers/bookmarks");
 
 /** Index: show all bookmarks */
 
-bookmarksRouter.get("/", bookmarksController.index);
+router.get("/", bookmarksController.index);
 
 /** Create: make a new bookmark */
-bookmarksRouter.post("/", bookmarksController.create);
+router.post("/", bookmarksController.create);
 
 /** Show: retreive one bookmakr by its title */
 
-bookmarksRouter.get("/:title", bookmarksController.show);
+router.get("/:title", bookmarksController.show);
 
 /** Update: update a specific bookmark */
 
-bookmarksRouter.put("/:title", bookmarksController.update);
+router.put("/:title", bookmarksController.update);
 
 /** Destory: delete a bookmark */
 
-bookmarksRouter.delete("/:title", bookmarksController.destroy);
+router.delete("/:title", bookmarksController.destroy);
 
-module.exports = bookmarksRouter;
+module.exports = router;
