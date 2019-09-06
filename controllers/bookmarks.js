@@ -8,5 +8,8 @@ module.exports = {
     Bookmark.find({ title: req.params.title }).then(bookmark =>
       res.json(bookmark)
     );
+  },
+  create: (req, res) => {
+    Bookmark.create(req.body).then(bookmark => res.json(bookmark));
   }
 };
