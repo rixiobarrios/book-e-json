@@ -38,5 +38,12 @@ module.exports = {
   },
   show: (req, res) => {
     User.findOne({ name: req.params.name }).then(user => res.json(user));
+  },
+  addBookmark: (req, res) => {
+    User.findOne({ name: req.params.name }).then(user => {
+      user.favorites.push(req.params.bookmarkId);
+      user.save();
+      res.json(user);
+    });
   }
 };

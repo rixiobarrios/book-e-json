@@ -19,4 +19,7 @@ router.post("/create-with-bookmark", usersController.createWithBookmark);
 /** Show: retreive one user by name */
 router.get("/:name", usersController.show);
 
+/** Add Bookmark to existing user (custom Update) */
+router.put("/:name/bookmark/:bookmarkId", usersController.addBookmark);
+
 module.exports = router;

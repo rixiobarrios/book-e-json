@@ -2,6 +2,12 @@
 
 ## Bookmark: Create
 
+_URL:_ `http://localhost:8080/api/bookmarks`
+
+_Method:_ `POST`
+
+_Request Body:_
+
 ```json
 {
   "title": "example",
@@ -9,7 +15,13 @@
 }
 ```
 
-## Bookmark: Updater
+## Bookmark: Update
+
+_URL:_ `http://localhost:8080/api/bookmarks/example`
+
+_Method:_ `PUT`
+
+_Request Body:_
 
 ```json
 {
@@ -20,6 +32,12 @@
 
 ## User: Create
 
+_URL:_ `http://localhost:8080/api/users`
+
+_Method:_ `POST`
+
+_Request Body:_
+
 ```json
 {
   "name": "Hammad",
@@ -28,6 +46,12 @@
 ```
 
 ## User: Create With Bookmark
+
+_URL:_ `http://localhost:8080/api/users/create-with-bookmark`
+
+_Method:_ `POST`
+
+_Request Body:_
 
 ```json
 {
@@ -41,3 +65,11 @@
   }
 }
 ```
+
+## Add Bookmark to user:
+
+_URL:_ `http://localhost:8080/api/users/Paul%20Allen/bookmark/5d72c65b2c92fd9e8d5d3c40`
+
+_Method:_ `PUT`
+
+_Request Body:_ None!
