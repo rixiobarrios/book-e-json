@@ -17,4 +17,8 @@ app.get("/", (req, res) => {
   res.redirect("/api/bookmarks");
 });
 
-app.listen(8080, () => console.log("They see me rollin...on port 8080..."));
+app.set("port", process.env.PORT || 8080);
+
+app.listen(app.get("port"), () =>
+  console.log(`✅ PORT: ${app.get("port")} 🌟`)
+);
