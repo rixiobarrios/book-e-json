@@ -7,7 +7,23 @@ const mongoose = require("mongoose");
 mongoose.Promise = Promise;
 
 // set the uri for connecting to our local mongodb
-const mongoURI = "mongodb://localhost/book-e";
+// const mongoURI = "mongodb://localhost/book-e";
+let mongoURI = "";
+
+if (process.env.NODE_ENV === "production") {
+  mongoURI = process.env.DB_URL;
+} else {
+  mongoURI = "mongodb://localhost/book-e";
+}
+
+/**
+ * if you're feeling fancy, you can assign this with a ternary operator as well
+ *
+ *  // const mongoURI =
+ *  //   process.env.NODE_ENV === "production"
+ *  //     ? process.env.DB_URL
+ *  //     : "mongodb://localhost/book-e";
+ **/
 
 // connect to the database, with the imported mongoose instance
 mongoose
