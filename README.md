@@ -12,6 +12,7 @@ Starter code + solution code for the book-e json api.
 1. Run `node db/seed`. This will run `seed.js` in the `db/` directory. 
 1. Hit `ctrl + c` to exit the process and get back control of your terminal.
 1. Run `nodemon`. If nodemon is not installed, `npm i -g nodemon` will install it globally.
+1. Navigate to `localhost:8080` in your browser. You should see some bookmarks data.
 
 ## Solution Code
 
