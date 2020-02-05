@@ -13,7 +13,7 @@ const app = express();
 // The method `.use` sets up middleware for the Express application
 app.use(express.json())
 // this parses requests that may use a different content type
-app.use(parser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // cors allows connections from all domains
 app.use(cors());
