@@ -8,7 +8,7 @@ Starter code + solution code for the book-e json api.
 1. `cd` into the newly created folder called `book-e-json`.
 1. `git checkout solution` to see the solution branch with comments!
 1. Run `npm install`.
-1. Run `mongod`, if it isn't already running.
+1. Run `brew services restart mongodb-community`, if mongo isn't already running.
 1. Run `node db/seed`. This will run `seed.js` in the `db/` directory.
 1. Run `nodemon`. If nodemon is not installed, `npm i -g nodemon` will install it globally.
 
