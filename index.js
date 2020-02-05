@@ -1,5 +1,4 @@
 const express = require("express");
-const parser = require("body-parser");
 const cors = require("cors");
 const bookmarksController = require("./controllers/bookmarks");
 const usersController = require("./controllers/users");
@@ -9,11 +8,12 @@ const app = express();
 
 // Middleware configuration
 
-// interprets key value pairs in URLs
+// add `express.json` middleware which will parse JSON requests into
+// JS objects before they reach the route files.
+// The method `.use` sets up middleware for the Express application
+app.use(express.json())
+// this parses requests that may use a different content type
 app.use(parser.urlencoded({ extended: true }));
-
-// converts a json string to the an object and attaches it to req.body
-app.use(parser.json());
 
 // cors allows connections from all domains
 app.use(cors());
